@@ -5,11 +5,11 @@
 
 
 
-const char* WIFI_SSID = "PHUCLOC";
-const char* WIFI_PASS = "Phucloctho79";
+const char* WIFI_SSID = "ssid";
+const char* WIFI_PASS = "pass_ssid";
 
 
-const char* MCP_ENDPOINT = "wss://api.xiaozhi.me/mcp/?token=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjY4NTY0MCwiYWdlbnRJZCI6MTE0Mjc5NiwiZW5kcG9pbnRJZCI6ImFnZW50XzExNDI3OTYiLCJwdXJwb3NlIjoibWNwLWVuZHBvaW50IiwiaWF0IjoxNzY3MzY1MDczLCJleHAiOjE3OTg5MjI2NzN9.20IF8bD-6uqXgLu7BN1nTgaJuHINiUL3kvcM1Lumai2r-9AZudV9Di7LkeA2w16cvmrznnLvC_TR87QVRw4x0w";
+const char* MCP_ENDPOINT = "wss://api.xiaozhi.me/mcp/?token=eyJh-----------------------------------------------------------------------------VRw4x0w";
 
 
 #define DEBUG_SERIAL Serial
@@ -350,4 +350,5 @@ void blinkLed(int times, int delayMs) {
     blinkCount = 0;
     lastTimes = 0;
   }
+
 }
