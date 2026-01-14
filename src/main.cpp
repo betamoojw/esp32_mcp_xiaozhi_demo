@@ -2,14 +2,14 @@
 #include <Arduino.h>
 #include <WiFi.h>
 #include <WebSocketMCP.h>
+#include "esp_idf_version.h"
 
 
+const char* WIFI_SSID = "ChinaNet-FShz";
+const char* WIFI_PASS = "rfkvwmvv";
 
-const char* WIFI_SSID = "ssid";
-const char* WIFI_PASS = "pass_ssid";
 
-
-const char* MCP_ENDPOINT = "wss://api.xiaozhi.me/mcp/?token=eyJh-----------------------------------------------------------------------------VRw4x0w";
+const char* MCP_ENDPOINT = "wss://api.xiaozhi.me/mcp/?token=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExODk4NCwiYWdlbnRJZCI6MTA5MDAsImVuZHBvaW50SWQiOiJhZ2VudF8xMDkwMCIsInB1cnBvc2UiOiJtY3AtZW5kcG9pbnQiLCJpYXQiOjE3NjgzMTM2NDMsImV4cCI6MTc5OTg3MTI0M30.Rf1Wg030527sX6DGzDzVdP52cOjYOMN67QN1iKU5fAaT3DTbAv3idzxDhn1IV5ecN45HxaXM1JdMDxZc4elkKA";
 
 
 #define DEBUG_SERIAL Serial
@@ -67,8 +67,29 @@ void printStatus() {
 }
 
 void setup() {
- 
   DEBUG_SERIAL.begin(DEBUG_BAUD_RATE);
+  delay(1000);
+
+  DEBUG_SERIAL.println("\n=== ESP32 Framework Summary ===");
+#if defined(ARDUINO_ARCH_ESP32)
+  DEBUG_SERIAL.println("PlatformIO: Arduino framework");
+#endif
+#ifdef ESP_ARDUINO_VERSION_MAJOR
+  DEBUG_SERIAL.printf("Arduino ESP32 Core: %d.%d.%d\n",
+                ESP_ARDUINO_VERSION_MAJOR,
+                ESP_ARDUINO_VERSION_MINOR,
+                ESP_ARDUINO_VERSION_PATCH);
+#endif
+
+#if defined(ESP_IDF_VERSION)
+  DEBUG_SERIAL.println("PlatformIO: ESP-IDF available");
+  DEBUG_SERIAL.printf("ESP-IDF Version: %d.%d.%d\n",
+                ESP_IDF_VERSION_MAJOR,
+                ESP_IDF_VERSION_MINOR,
+                ESP_IDF_VERSION_PATCH);
+#endif
+  DEBUG_SERIAL.println("=== ESP32 Framework Summary ===\n");
+
   DEBUG_SERIAL.println("\n\n[ESP32 MCP] Initializing...");
   
  
